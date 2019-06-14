@@ -3,8 +3,12 @@ import './App.css';
 //import Header from './Header';
 //import Intro from './Intro';
 import PropTypes from 'prop-types';
+import Users from './users/Users';
 
 
+function Hello(){
+  return "Hello Dear";
+}
 
 class App extends Component {
   constructor(props){
@@ -25,6 +29,8 @@ class App extends Component {
        <h1>{this.props.propString}</h1>
        <button onClick={this.clickeventButton}>Click me</button>
        <Number randNo={this.state.r}/>
+       <Hello/>
+       <Users title="Users List"/>
       </div>
     );
   }
