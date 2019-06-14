@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
-//import Header from './Header';
-//import Intro from './Intro';
 import PropTypes from 'prop-types';
 import Users from './users/users';
 
@@ -14,7 +11,12 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      r:0
+      r:0,
+      users:[
+        {name:"ishant", age:27},
+        {name:"jinks", age: 26},
+        {name:"pranava", age:26}
+      ]
     }
     this.clickeventButton=this.clickeventButton.bind(this);
   }
