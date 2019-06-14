@@ -13,6 +13,16 @@ class Users extends Component{
               ]
         }
     }
+    makeMeYounger=()=>{
+        console.log("clicked");
+        this.setState({
+            users:[
+                {name:"ishant", age:25},
+                {name:"jinks", age: 24},
+                {name:"pranava", age:24}
+              ]
+        });
+    }
     render(){
         return(
             <div>
@@ -21,6 +31,7 @@ class Users extends Component{
                 <User age={this.state.users[0].age}>{this.state.users[0].name}</User>
                 <User age={this.state.users[1].age}>{this.state.users[0].name}</User>
                 <User >Pranava</User>
+                <button onClick={this.makeMeYounger}>Make me younger by 2 yrs</button>
             </div>
         )
     }
