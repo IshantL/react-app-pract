@@ -3,7 +3,7 @@ import './App.css';
 //import Header from './Header';
 //import Intro from './Intro';
 import PropTypes from 'prop-types';
-import Users from './users/Users';
+import Users from './users/users';
 
 
 function Hello(){
