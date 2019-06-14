@@ -18,8 +18,8 @@ class Users extends Component{
             <div>
                 <h1>{this.props.title}</h1>
                 Hello from class componenet
-                <User age={this.state.users[0].age}>{this.state.users[0].age}</User>
-                <User age={this.state.users[1].age}>{this.state.users[0].age}</User>
+                <User age={this.state.users[0].age}>{this.state.users[0].name}</User>
+                <User age={this.state.users[1].age}>{this.state.users[0].name}</User>
                 <User >Pranava</User>
             </div>
         )
