@@ -11,12 +11,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      r:0,
-      users:[
-        {name:"ishant", age:27},
-        {name:"jinks", age: 26},
-        {name:"pranava", age:26}
-      ]
+      r:0
     }
     this.clickeventButton=this.clickeventButton.bind(this);
   }
