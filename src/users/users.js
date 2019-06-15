@@ -15,22 +15,32 @@ class Users extends Component{
     }
     makeMeYounger=()=>{
         console.log("clicked");
-        this.setState({
-            users:[
-                {name:"ishant", age:25},
-                {name:"jinks", age: 24},
-                {name:"pranava", age:24}
-              ]
-        });
+        // this.setState({
+        //     users:[
+        //         {name:"ishant", age:25},
+        //         {name:"jinks", age: 24},
+        //         {name:"pranava", age:24}
+        //       ]
+        // });
+        const newState = this.state.users.map((user)=>{
+            const tmpUser= user;
+            tmpUser.age -=2;
+            return tmpUser;
+        })
+        this.setState({users:newState})
     }
     render(){
         return(
             <div>
                 <h1>{this.props.title}</h1>
                 Hello from class componenet
-                <User age={this.state.users[0].age}>{this.state.users[0].name}</User>
-                <User age={this.state.users[1].age}>{this.state.users[0].name}</User>
-                <User >Pranava</User>
+                {
+                    this.state.users.map((user)=>{
+                       return <User age={user.age}>{user.name}</User>
+                    })
+                }6
+                
+                
                 <button onClick={this.makeMeYounger}>Make me younger by 2 yrs</button>
             </div>
         )
