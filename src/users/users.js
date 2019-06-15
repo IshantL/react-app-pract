@@ -13,6 +13,9 @@ class Users extends Component{
               ]
         }
     }
+    addItemInArrayState=(e)=>{
+        console.log(e);
+    }
     makeMeYounger=()=>{
         console.log("clicked");
         // this.setState({
@@ -38,10 +41,11 @@ class Users extends Component{
                     this.state.users.map((user)=>{
                        return <User age={user.age}>{user.name}</User>
                     })
-                }6
-                
-                
+                }
                 <button onClick={this.makeMeYounger}>Make me younger by 2 yrs</button>
+                <h2>To add value in array</h2>
+                <input id="name" type="text" onChange={this.addItemInArrayState}></input>
+                <button onClick={this.addItemInArray}>Add Item</button>
             </div>
         )
     }
