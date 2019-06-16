@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import User from './user';
-
+import UniqueId from 'react-html-id';
 //here we extract only array
 const users = [
     {name:"ishant", age:27},
@@ -115,14 +115,14 @@ class Users extends Component{
     }
     render(){
         return(
-            <div>
+            <Fragment>
                 <h1>{this.props.title}</h1>
                 Hello from class component, Handson with Array maniculaions
                 {
                     this.state.users.map((user,index)=>{
                        return (
                            <div>
-                             <User age={user.age}>{user.name}</User>
+                             <User key={user.name} age={user.age}>{user.name}</User>
                        <button
                        type="button"
                        onClick={() => this.onUpdateItem(index)}
@@ -151,7 +151,7 @@ class Users extends Component{
                 <h2>React State: Remove item from array</h2>
                 <input type="number" name="deleteAge" onChange={this.addItemInArrayState}></input>
                 <button onClick={this.deleteItemBasedOnAge}>delete Item</button>
-            </div>
+            </Fragment>
         )
     }
 }

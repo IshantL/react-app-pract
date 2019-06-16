@@ -1,11 +1,11 @@
-import React from 'react';
+import React,{Fragment} from 'react';
 
 const Child = (props) =>{
     return(
-        <div>
+        <Fragment>
           <div>{props.xyz}</div>
           <div>{props.randNo}</div>
-        </div>
+        </Fragment>
         )
 }    
       
