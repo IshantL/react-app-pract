@@ -143,7 +143,7 @@ class Users extends Component{
                 <div><button onClick={this.resetAllUsers}>ResetAllUsers</button></div>
                 <h2>To add item to array</h2>
                 Name:<input id="name" type="text" name="name" onChange={this.addItemInArrayState}></input>
-                Age:<input id="name" type="text" name="age" onChange={this.addItemInArrayState}></input>
+                Age:<input id="name" type="text" name="age" value={this.state.age} onChange={this.addItemInArrayState}></input>
                 <div><button onClick={this.addItemInArray}>Add Item</button></div>
                 <h2>React State: Update item in array</h2>
                 <h2>React State: Remove item from array</h2>

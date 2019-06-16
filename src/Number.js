@@ -3,7 +3,8 @@ import React from 'react';
 const Number = (props) =>{
     return(
         <div>
-          {props.randNo}
+         <button onClick={props.callFunctionInParent}>Click me</button>
+          <div>{props.randNo}</div>
         </div>
         )
 }    

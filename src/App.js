@@ -21,14 +21,14 @@ class App extends Component {
     console.log('ooooo');
     this.setState({r:Math.floor(Math.random()*10)})
       }
-      
+
   render() {
     return (
       <div className="App">
        <Parent/>
        <h1>{this.props.propString}</h1>
-       <button onClick={this.clickeventButton}>Click me</button>
-       <Number randNo={this.state.r}/>
+      
+       <Number randNo={this.state.r} callFunctionInParent={this.clickeventButton}/>
        <Hello/>
        <Users title="Users List"/>
       </div>
