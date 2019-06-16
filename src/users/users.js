@@ -91,6 +91,11 @@ class Users extends Component{
         this.setState({users:newstate})
         console.log(newstate);
     }
+    deleteItem= (i)=>{
+        console.log("in delete "+i);
+        const list = this.state.users.filter((item, j) => i !== j);
+        this.setState({users:list});
+    }
     render(){
         return(
             <div>
@@ -107,6 +112,12 @@ class Users extends Component{
                      >
                        Make me one year older
                      </button>
+                     <button
+                       type="button"
+                       onClick={this.deleteItem.bind(this,index)}
+                     >
+                       Delete me
+                     </button>
                             </div>
                        );
                       
@@ -120,6 +131,7 @@ class Users extends Component{
                 Age:<input id="name" type="text" name="age" onChange={this.addItemInArrayState}></input>
                 <div><button onClick={this.addItemInArray}>Add Item</button></div>
                 <h2>React State: Update item in array</h2>
+                <h2>React State: Remove item from array</h2>
             </div>
         )
     }
