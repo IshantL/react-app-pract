@@ -74,23 +74,52 @@ class Users extends Component{
         this.setState({users});
        // this.setState({...INITIAL_STATE})
     }
+    onUpdateItem=(i)=>{
+        console.log(i);
+       const newstate =  this.state.users.map((user,j)=>{
+           var newObj={};
+
+            if(i===j){
+                newObj.name=user.name;
+                newObj.age=user.age+1;
+               return newObj;
+                   
+            }else{
+                return user;
+            }
+        });
+        this.setState({users:newstate})
+        console.log(newstate);
+    }
     render(){
         return(
             <div>
                 <h1>{this.props.title}</h1>
                 Hello from class component, Handson with Array maniculaions
                 {
-                    this.state.users.map((user)=>{
-                       return <User age={user.age}>{user.name}</User>
+                    this.state.users.map((user,index)=>{
+                       return (
+                           <div>
+                             <User age={user.age}>{user.name}</User>
+                       <button
+                       type="button"
+                       onClick={() => this.onUpdateItem(index)}
+                     >
+                       Make me one year older
+                     </button>
+                            </div>
+                       );
+                      
                     })
                 }
-                <div><button onClick={this.makeMeYounger}>Make me younger by 2 yrs</button></div>
+                <div><button onClick={this.makeMeYounger}>Make all users younger by 2 yrs</button></div>
                 <div><button onClick={this.deleteAllUsers.bind(this)}>DeleteAllUsers</button></div>
                 <div><button onClick={this.resetAllUsers}>ResetAllUsers</button></div>
                 <h2>To add item to array</h2>
                 Name:<input id="name" type="text" name="name" onChange={this.addItemInArrayState}></input>
                 Age:<input id="name" type="text" name="age" onChange={this.addItemInArrayState}></input>
                 <div><button onClick={this.addItemInArray}>Add Item</button></div>
+                <h2>React State: Update item in array</h2>
             </div>
         )
     }
