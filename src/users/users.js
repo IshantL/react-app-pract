@@ -94,14 +94,16 @@ class Users extends Component{
     }
     deleteItem= (i)=>{
         console.log("in delete "+i);
-        const list = this.state.users.filter((item, j) => i !== j);
-        this.setState({users:list});
+        /* const list = this.state.users.filter((item, j) => i !== j);
+        this.setState({users:list}); */
         //we can use destructuring if we want to remove first element etc..
         /* const [first, ...rest] = state.list;
-
         return {
           list: rest,
         }; */
+        const users = Object.assign([],this.state.users);
+        users.splice(i,1);
+        this.setState({users});
     }
     deleteItemBasedOnAge=()=>{
         console.log("in delete");
