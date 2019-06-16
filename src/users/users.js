@@ -23,7 +23,8 @@ class Users extends Component{
         this.state ={
             users,
             name:'',
-            age:18
+            age:18,
+            deleteAge:0
         }
     }
     addItemInArrayState=(e)=>{
@@ -102,6 +103,14 @@ class Users extends Component{
           list: rest,
         }; */
     }
+    deleteItemBasedOnAge=()=>{
+        console.log("in delete");
+        console.log(this.state);
+        debugger;
+        const list = this.state.users.filter((item) => Number(this.state.deleteAge) !== item.age);
+        console.log(list);
+        this.setState({users:list});
+    }
     render(){
         return(
             <div>
@@ -138,6 +147,8 @@ class Users extends Component{
                 <div><button onClick={this.addItemInArray}>Add Item</button></div>
                 <h2>React State: Update item in array</h2>
                 <h2>React State: Remove item from array</h2>
+                <input type="number" name="deleteAge" onChange={this.addItemInArrayState}></input>
+                <button onClick={this.deleteItemBasedOnAge}>delete Item</button>
             </div>
         )
     }
