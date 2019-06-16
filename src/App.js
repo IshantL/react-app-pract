@@ -11,6 +11,7 @@ function Hello(){
 
 class App extends Component {
   constructor(props){
+    console.log("Constructor");
     super(props);
     this.state={
       r:0
@@ -21,8 +22,18 @@ class App extends Component {
     console.log('ooooo');
     this.setState({r:Math.floor(Math.random()*10)})
       }
-
+      componentWillMount(){
+        console.log("comonenet will mount");
+        //if we want to change the state e.g depends on props etc before rendrening we can do it here.
+        if(window.innerWidth <700){
+          this.setState({innerWidth:window.innerWidth})
+        }
+      }
+      componentDidMount(){
+        console.log("component did mount");
+      }
   render() {
+    console.log("render");
     return (
       <div className="App">
        <Parent/>
@@ -31,6 +42,7 @@ class App extends Component {
        <Number randNo={this.state.r} callFunctionInParent={this.clickeventButton}/>
        <Hello/>
        <Users title="Users List"/>
+       Innerwidth: {this.state.innerWidth}
       </div>
     );
   }

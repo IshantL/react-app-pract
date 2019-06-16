@@ -19,7 +19,7 @@ const users = [
 class Users extends Component{
     constructor(props){
         super(props);
-
+        console.log("child constructor")
         this.state ={
             users,
             name:'',
@@ -27,6 +27,19 @@ class Users extends Component{
             deleteAge:0
         }
     }
+    componentWillReceiveProps(){
+        console.log("component will recieve props in child");
+    }
+    componentWillMount(){
+        console.log("child componenet will mount");
+        //if we want to change the state e.g depends on props etc before rendrening we can do it here.
+        if(window.innerWidth <700){
+          this.setState({innerWidth:window.innerWidth})
+        }
+      }
+      componentDidMount(){
+        console.log("child component did mount");
+      }
     addItemInArrayState=(e)=>{
         console.log(e);
         //this.setState({name:e.target.value});
@@ -114,6 +127,7 @@ class Users extends Component{
         this.setState({users:list});
     }
     render(){
+        console.log("child render");
         return(
             <Fragment>
                 <h1>{this.props.title}</h1>

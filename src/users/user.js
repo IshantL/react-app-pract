@@ -1,6 +1,8 @@
 import React from 'react';
 
+
 const User =(props)=>{
+    
     if(!props.age ){
         return <h4>Name:{props.children}</h4>
 
@@ -9,4 +11,5 @@ const User =(props)=>{
 
     }
 }
+
 export default User;
