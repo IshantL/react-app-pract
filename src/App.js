@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Users from './users/users';
 import Parent from './Parent';
 import Number from './Number';
+import './App.css';
 
 function Hello(){
   return "Hello Dear";
@@ -20,6 +21,7 @@ class App extends Component {
     console.log('ooooo');
     this.setState({r:Math.floor(Math.random()*10)})
       }
+      
   render() {
     return (
       <div className="App">
