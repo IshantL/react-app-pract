@@ -2,10 +2,10 @@ import React from 'react';
 
 const User =(props)=>{
     if(!props.age ){
-        return <h2>Not specified</h2>
+        return <h4>Not specified</h4>
 
     }else{
-        return <h2>Age: {props.age} Name:{props.children}</h2>
+        return <h4>Age: {props.age} Name:{props.children}</h4>
 
     }
 }

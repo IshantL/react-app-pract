@@ -66,7 +66,7 @@ class Users extends Component{
                 <div><button onClick={this.makeMeYounger}>Make me younger by 2 yrs</button></div>
                 <div><button onClick={this.deleteAllUsers.bind(this)}>DeleteAllUsers</button></div>
                 <div><button onClick={this.resetAllUsers}>ResetAllUsers</button></div>
-                <h2>To add value in array</h2>
+                <h2>To add item to array</h2>
                 <input id="name" type="text" onChange={this.addItemInArrayState}></input>
                 <button onClick={this.addItemInArray}>Add Item</button>
             </div>
