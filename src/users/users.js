@@ -95,6 +95,12 @@ class Users extends Component{
         console.log("in delete "+i);
         const list = this.state.users.filter((item, j) => i !== j);
         this.setState({users:list});
+        //we can use destructuring if we want to remove first element etc..
+        /* const [first, ...rest] = state.list;
+
+        return {
+          list: rest,
+        }; */
     }
     render(){
         return(
