@@ -22,18 +22,19 @@ class Users extends Component{
 
         this.state ={
             users,
-            value:'',
+            name:'',
             age:18
         }
     }
     addItemInArrayState=(e)=>{
         console.log(e);
-        this.setState({value:e.target.value});
+        //this.setState({name:e.target.value});
+        this.setState({[e.target.name]: e.target.value})
     }
     addItemInArray =()=>{
         debugger;
         this.setState({
-        users:this.state.users.concat({name: this.state.value, age : this.state.age})    
+        users:this.state.users.concat({name: this.state.name, age : this.state.age})    
         });
         console.log(this.state);
     }
@@ -77,8 +78,8 @@ class Users extends Component{
                 <div><button onClick={this.deleteAllUsers.bind(this)}>DeleteAllUsers</button></div>
                 <div><button onClick={this.resetAllUsers}>ResetAllUsers</button></div>
                 <h2>To add item to array</h2>
-                Name:<input id="name" type="text" onChange={this.addItemInArrayState}></input>
-                Age:<input id="name" type="text" onChange={this.addItemInArrayState}></input>
+                Name:<input id="name" type="text" name="name" onChange={this.addItemInArrayState}></input>
+                Age:<input id="name" type="text" name="age" onChange={this.addItemInArrayState}></input>
                 <div><button onClick={this.addItemInArray}>Add Item</button></div>
             </div>
         )
