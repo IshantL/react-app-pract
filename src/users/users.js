@@ -1,12 +1,21 @@
 import React, {Component} from 'react';
 import User from './user';
 
+//here we extract only array
 const users = [
     {name:"ishant", age:27},
     {name:"jinks", age: 26},
     {name:"pranava", age:26}
   ];
-
+//we can also extract the complete state
+// const INITIAL_STATE = {
+//     users : [
+//         {name:"ishant", age:27},
+//         {name:"jinks", age: 26},
+//         {name:"pranava", age:26}
+//       ]
+//   };
+  
 class Users extends Component{
     constructor(props){
         super(props);
@@ -42,6 +51,7 @@ class Users extends Component{
 
     resetAllUsers = ()=>{
         this.setState({users});
+       // this.setState({...INITIAL_STATE})
     }
     render(){
         return(
