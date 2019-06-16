@@ -32,6 +32,16 @@ class App extends Component {
       componentDidMount(){
         console.log("component did mount");
       }
+      shouldComponentUpdate(nextState,nextProps){
+        console.log("should component update -App.js")
+        return true;
+      }
+      componentWillUpdate(){
+        console.log("component will update- app.js")
+      }
+      componentDidUpdate(prevProps,prevState){
+        console.log("component did Update-app.js")
+      }
   render() {
     console.log("render");
     return (

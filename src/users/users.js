@@ -28,8 +28,18 @@ class Users extends Component{
         }
     }
     componentWillReceiveProps(){
-        console.log("component will recieve props in child");
+        console.log("component will recieve props in child -users");
     }
+    shouldComponentUpdate(nextState,nextProps){
+        console.log("should component update -users")
+        return true;
+      }
+      componentWillUpdate(){
+        console.log("component will update- users.js")
+      }
+      componentDidUpdate(prevProps,prevState){
+        console.log("component did Update-users.js")
+      }
     componentWillMount(){
         console.log("child componenet will mount");
         //if we want to change the state e.g depends on props etc before rendrening we can do it here.

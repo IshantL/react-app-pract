@@ -10,12 +10,23 @@ class Parent extends Component{
      };
      this.handleClick=this.handleClick.bind(this);
    }
-   
+   componentWillReceiveProps(){
+    console.log("component will recieve props in child parent");
+}
  
  handleClick(){
  this.setState({car:this.state.car.reverse()})
  }
- 
+ shouldComponentUpdate(nextState,nextProps){
+  console.log("should component update -parent")
+  return true;
+}
+componentWillUpdate(){
+  console.log("component will update- parent.js")
+}
+componentDidUpdate(prevProps,prevState){
+  console.log("component did Update-parent.js")
+}
    render(){
      return(
  <div>
