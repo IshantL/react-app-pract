@@ -5,8 +5,11 @@ import Parent from './Parent';
 import Number from './Number';
 import './App.css';
 
-function Hello(){
-  return "Hello Dear";
+function Hello(props){
+  return (<div>"Hello" {props.name}</div>)
+}
+function Score(props){
+  return (<div>"Score:" {props.val}</div>)
 }
 
 class App extends Component {
@@ -14,7 +17,9 @@ class App extends Component {
     console.log("Constructor");
     super(props);
     this.state={
-      r:0
+      r:0,
+      name: "friend",
+      val:1
     }
     this.clickeventButton=this.clickeventButton.bind(this);
   }
@@ -31,10 +36,19 @@ class App extends Component {
       }
       componentDidMount(){
         console.log("component did mount");
+        //example football game score:
+        setInterval(()=>{
+          this.setState(()=>{
+            return{val:1}
+          })
+        },2000)
       }
       shouldComponentUpdate(nextState,nextProps){
         console.log("should component update -App.js")
-        return true;
+        //here  I am checking the state
+        console.log('nextState',nextState);
+        console.log('nextProps',nextProps)
+        return (this.state.val === nextState.val? false:true);
       }
       componentWillUpdate(){
         console.log("component will update- app.js")
@@ -48,9 +62,10 @@ class App extends Component {
       <div className="App">
        <Parent/>
        <h1>{this.props.propString}</h1>
-      
+       <Score val={this.state.val}/>
+
        <Number randNo={this.state.r} callFunctionInParent={this.clickeventButton}/>
-       <Hello/>
+       <Hello name={this.state.name}/>
        <Users title="Users List"/>
        Innerwidth: {this.state.innerWidth}
       </div>
