@@ -21,11 +21,21 @@ class Users extends Component{
         super(props);
 
         this.state ={
-            users
+            users,
+            value:'',
+            age:18
         }
     }
     addItemInArrayState=(e)=>{
         console.log(e);
+        this.setState({value:e.target.value});
+    }
+    addItemInArray =()=>{
+        debugger;
+        this.setState({
+        users:this.state.users.concat({name: this.state.value, age : this.state.age})    
+        });
+        console.log(this.state);
     }
     makeMeYounger=()=>{
         console.log("clicked");
@@ -67,8 +77,9 @@ class Users extends Component{
                 <div><button onClick={this.deleteAllUsers.bind(this)}>DeleteAllUsers</button></div>
                 <div><button onClick={this.resetAllUsers}>ResetAllUsers</button></div>
                 <h2>To add item to array</h2>
-                <input id="name" type="text" onChange={this.addItemInArrayState}></input>
-                <button onClick={this.addItemInArray}>Add Item</button>
+                Name:<input id="name" type="text" onChange={this.addItemInArrayState}></input>
+                Age:<input id="name" type="text" onChange={this.addItemInArrayState}></input>
+                <div><button onClick={this.addItemInArray}>Add Item</button></div>
             </div>
         )
     }
