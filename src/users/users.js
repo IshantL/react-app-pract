@@ -33,18 +33,20 @@ class Users extends Component{
     }
     addItemInArray =()=>{
         debugger;
-        // this.setState({
-        // users:this.state.users.concat({name: this.state.name, age : this.state.age})    
-        // });
+        this.setState({
+        //users:this.state.users.concat({name: this.state.name, age : this.state.age})   
+        users:[...this.state.users, {name: this.state.name, age : this.state.age}]
+
+        });
         //another approch
-        this.setState(state => {
+       /*  this.setState(state => {
         const users = this.state.users.concat({name: this.state.name, age : this.state.age});
         return {
         users,
         value: '',
         age:0
-        };
-    });
+        }; 
+    });*/
 }
     makeMeYounger=()=>{
         console.log("clicked");
