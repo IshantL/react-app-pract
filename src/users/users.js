@@ -33,11 +33,19 @@ class Users extends Component{
     }
     addItemInArray =()=>{
         debugger;
-        this.setState({
-        users:this.state.users.concat({name: this.state.name, age : this.state.age})    
-        });
-        console.log(this.state);
-    }
+        // this.setState({
+        // users:this.state.users.concat({name: this.state.name, age : this.state.age})    
+        // });
+        //another approch
+        this.setState(state => {
+        const users = this.state.users.concat({name: this.state.name, age : this.state.age});
+        return {
+        users,
+        value: '',
+        age:0
+        };
+    });
+}
     makeMeYounger=()=>{
         console.log("clicked");
         // this.setState({
