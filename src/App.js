@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Users from './users/users';
-
+import Parent from './Parent';
+import Number from './Number';
 
 function Hello(){
   return "Hello Dear";
@@ -46,62 +47,6 @@ App.defaultProps={
   propObject:{
     "id":1,
     "name":"Ilikeit"
-  }
-}
-
-
-class Parent extends Component{
-
-   constructor(props){
-    super(props);
-    this.state={
-      car:["c-bmw","c-porshe","c-Audi"]
-    };
-    this.handleClick=this.handleClick.bind(this);
-  }
-  
-
-handleClick(){
-this.setState({car:this.state.car.reverse()})
-}
-
-  render(){
-    return(
-<div>
-<h1 onClick={this.handleClick}>Welcome to props</h1>
-<Car model="BMW" no="123" cars={this.state.car}/>
-</div>
-    )
-  }
-}
-Parent.defaultProps={
-car:["bmw","porshe","Audi"]
-}
-
-
-
-class Car extends Component{
-  render(){
-    return(
-<div>
-<h2 >Welcome to Cars</h2>
-<p>{this.props.model}</p>
-<p>{this.props.no}</p>
-<div>{this.props.cars.map((item,i)=>{
-  return <p key={i}>{item}</p>;
-})}</div>
-</div>
-    )
-  }
-}
-
-class Number extends Component{
-  render(){
-    return(
-      <div>
-        {this.props.randNo}
-      </div>
-      )
   }
 }
 export default App;
