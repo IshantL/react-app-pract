@@ -4,6 +4,7 @@ import Car from './Car';
 class Parent extends Component{
 
     constructor(props){
+      console.log("Parent-constructor");
      super(props);
      this.state={
        car:["c-bmw","c-porshe","c-Audi"]
@@ -20,6 +21,10 @@ class Parent extends Component{
  shouldComponentUpdate(nextState,nextProps){
   console.log("parent-should component update -parent")
   return true;
+}
+componentWillMount(){
+  console.log("Parent-component will mount");
+
 }
 componentWillUpdate(){
   console.log("parent- component will update- parent.js")

@@ -20,19 +20,19 @@ function Score(props){
         componentDidMount(){
           console.log("pure Comp component did mount-pure Comp");
           //example football game score:
-         /*  setInterval(()=>{
+           setInterval(()=>{
             this.setState(()=>{
               return{val:1}
             })
-          },2000) */
+          },2000) 
         }
-        shouldComponentUpdate(nextState,nextProps){
-          console.log("pure Comp should component update -App.js")
+        shouldComponentUpdate(nextProps,nextState){
+          console.log("pure Comp should component update")
           //here  I am checking the state
-         // console.log('nextState',nextState);
-         // console.log('nextProps',nextProps)
-         // return (this.state.val === nextState.val? false:true);
-         return true;
+          console.log('nextState',nextState);
+          console.log('currentState',this.state);
+          console.log('nextProps',nextProps)
+          return (this.state.val === nextState.val? false:true);
         }
         componentWillUpdate(){
           console.log("pure Comp component will update-pureComp");
