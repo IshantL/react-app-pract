@@ -8,7 +8,7 @@ import ParentPure from './pureComponent/parent';
 import PureComponent from './pureComponent/pureComponentMethod';
 import {BrowserRouter as Router, Link, NavLink, Redirect, Prompt} from 'react-router-dom';
 import Route from 'react-router-dom/Route';
-
+import RefDemo from './RefDemo';
 
 function Hello(props){
   return (<div>Hello {props.name}</div>)
@@ -108,6 +108,8 @@ class App extends Component {
        <ParentPure/>
        <h1>Pure Component Method</h1>
        <PureComponent/>
+       <RefDemo/>
+
       </div>
       </Router>
     );
