@@ -5,6 +5,7 @@ import Parent from './Parent';
 import Number from './Number';
 import './App.css';
 import ParentPure from './pureComponent/parent';
+import PureComponent from './pureComponent/pureComponentMethod';
 
 function Hello(props){
   return (<div>Hello {props.name}</div>)
@@ -54,8 +55,9 @@ class App extends Component {
        <Hello name={this.state.name}/>
        <Users title="Users List"/>
        Innerwidth: {this.state.innerWidth}
-       <h1>Pure Component</h1>
-       <ParentPure/>
+       <h1>Pure Component using should component update..</h1>
+       <h1>Pure Component Method</h1>
+       <PureComponent/>
       </div>
     );
   }

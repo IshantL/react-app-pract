@@ -22,7 +22,7 @@ function Score(props){
           //example football game score:
            setInterval(()=>{
             this.setState(()=>{
-              return{val:1}
+              return{val:Math.floor(Math.random()*10)}
             })
           },2000) 
         }
