@@ -6,7 +6,7 @@ import Number from './Number';
 import './App.css';
 import ParentPure from './pureComponent/parent';
 import PureComponent from './pureComponent/pureComponentMethod';
-import {BrowserRouter as Router, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Link, NavLink, Redirect} from 'react-router-dom';
 import Route from 'react-router-dom/Route';
 
 
@@ -24,9 +24,14 @@ class App extends Component {
     super(props);
     this.state={
       r:0,
-      name: "friend"
+      name: "friend",
+      loggedIn:false
     }
     this.clickeventButton=this.clickeventButton.bind(this);
+  }
+  loginHandle =()=>{
+    console.log("Login Handle");
+    this.setState({loggedIn:true})
   }
   clickeventButton(){
     console.log('ooooo');
@@ -57,15 +62,22 @@ class App extends Component {
     return (
       <Router>
       <div className="App">
+      <h1>Router Demo..(/home,/about)</h1>
       <ul>
         <li><Link to ="/">Home</Link></li>
         <li><Link to ="/about">About</Link></li>
         <li><Link to ="/Hello">Hello</Link></li>
         <li><Link to ="/User/John">User John</Link></li>
         <li><Link to ="/User/Peter">User Peter</Link></li>
-
       </ul>
-      <h1>Router Demo..(/home,/about)</h1>
+      <h1>Using Nav Link</h1>
+      <ul>
+        <li><NavLink to ="/" exact activeStyle={{color:'green'}}>Home</NavLink></li>
+        <li><NavLink to ="/about" exact activeStyle={{color:'green'}}>About</NavLink></li>
+        <li><NavLink to ="/Hello" exact activeStyle={{color:'green'}}>Hello</NavLink></li>
+        <li><NavLink to ="/User/John" exact activeStyle={{color:'green'}}>User John</NavLink></li>
+        <li><NavLink to ="/User/Peter" exact activeStyle={{color:'green'}}>User Peter</NavLink></li>
+      </ul>
       <Route path='/'exact render={()=>{
         return (<h1>Welcome Home</h1>)
       }}/>
@@ -74,6 +86,7 @@ class App extends Component {
       }}/>
       <Route path='/Hello' exact strict component={Hello}/>
       <Route path='/User/:username' exact strict component={User}/>
+      <input type="button" value="Loggedin" onClick={this.loginHandle}/>
        <Parent/>
        <h1>{this.props.propString}</h1>
        <Number randNo={this.state.r} callFunctionInParent={this.clickeventButton}/>
