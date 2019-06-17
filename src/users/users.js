@@ -1,6 +1,5 @@
 import React, {Component, Fragment} from 'react';
 import User from './user';
-import UniqueId from 'react-html-id';
 //here we extract only array
 const users = [
     {name:"ishant", age:27},
@@ -19,7 +18,7 @@ const users = [
 class Users extends Component{
     constructor(props){
         super(props);
-        console.log("child constructor")
+        console.log("Users- constructor")
         this.state ={
             users,
             name:'',
@@ -28,27 +27,27 @@ class Users extends Component{
         }
     }
     componentWillReceiveProps(){
-        console.log("component will recieve props in child -users");
+        console.log("Users- component will recieve props in child -users");
     }
     shouldComponentUpdate(nextState,nextProps){
-        console.log("should component update -users")
+        console.log("Users- should component update -users")
         return true;
       }
       componentWillUpdate(){
-        console.log("component will update- users.js")
+        console.log("Users- component will update- users.js")
       }
       componentDidUpdate(prevProps,prevState){
-        console.log("component did Update-users.js")
+        console.log("Users- component did Update-users.js")
       }
     componentWillMount(){
-        console.log("child componenet will mount");
+        console.log("Users-  componenet will mount");
         //if we want to change the state e.g depends on props etc before rendrening we can do it here.
         if(window.innerWidth <700){
           this.setState({innerWidth:window.innerWidth})
         }
       }
       componentDidMount(){
-        console.log("child component did mount");
+        console.log("Users- component did mount");
       }
     addItemInArrayState=(e)=>{
         console.log(e);
@@ -137,7 +136,7 @@ class Users extends Component{
         this.setState({users:list});
     }
     render(){
-        console.log("child render");
+        console.log("Users- render");
         return(
             <Fragment>
                 <h1>{this.props.title}</h1>
