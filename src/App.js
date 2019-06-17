@@ -6,7 +6,7 @@ import Number from './Number';
 import './App.css';
 import ParentPure from './pureComponent/parent';
 import PureComponent from './pureComponent/pureComponentMethod';
-import {BrowserRouter as Router, Link, NavLink, Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Link, NavLink, Redirect, Prompt} from 'react-router-dom';
 import Route from 'react-router-dom/Route';
 
 
@@ -14,8 +14,8 @@ function Hello(props){
   return (<div>Hello {props.name}</div>)
 }
 
-const User =({match})=>{
-  return (<h1>Hello: {match.params.username}</h1>)
+const User =(params)=>{
+  return (<h1>Hello: {params.username}</h1>)
 }
 
 class App extends Component {
@@ -31,8 +31,11 @@ class App extends Component {
   }
   loginHandle =()=>{
     console.log("Login Handle");
-    this.setState({loggedIn:true})
-  }
+
+    this.setState(prevState=>({
+      loggedIn:!prevState.loggedIn
+      }));
+    }
   clickeventButton(){
     console.log('ooooo');
     this.setState({r:Math.floor(Math.random()*10)})
@@ -78,6 +81,10 @@ class App extends Component {
         <li><NavLink to ="/User/John" exact activeStyle={{color:'green'}}>User John</NavLink></li>
         <li><NavLink to ="/User/Peter" exact activeStyle={{color:'green'}}>User Peter</NavLink></li>
       </ul>
+      <Prompt 
+      when={!this.state.loggedIn} 
+      message="Are you sure?"
+      />
       <Route path='/'exact render={()=>{
         return (<h1>Welcome Home</h1>)
       }}/>
@@ -85,8 +92,12 @@ class App extends Component {
         return (<h1>Welcome About</h1>)
       }}/>
       <Route path='/Hello' exact strict component={Hello}/>
-      <Route path='/User/:username' exact strict component={User}/>
-      <input type="button" value="Loggedin" onClick={this.loginHandle}/>
+
+      <Route path='/User/:username' exact strict render={({match})=>(
+      this.state.loggedIn ? (<User username={match.params.username}/>):(<Redirect to ='/' />)
+      )} />
+
+      <input type="button" value={this.state.loggedIn ? 'Log out':'log in'} onClick={this.loginHandle}/>
        <Parent/>
        <h1>{this.props.propString}</h1>
        <Number randNo={this.state.r} callFunctionInParent={this.clickeventButton}/>
