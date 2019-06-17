@@ -6,11 +6,17 @@ import Number from './Number';
 import './App.css';
 import ParentPure from './pureComponent/parent';
 import PureComponent from './pureComponent/pureComponentMethod';
+import {BrowserRouter as Router, Link} from 'react-router-dom';
+import Route from 'react-router-dom/Route';
+
 
 function Hello(props){
   return (<div>Hello {props.name}</div>)
 }
 
+const User =({match})=>{
+  return (<h1>Hello: {match.params.username}</h1>)
+}
 
 class App extends Component {
   constructor(props){
@@ -47,8 +53,27 @@ class App extends Component {
       }
   render() {
     console.log("App render");
+    //exact is for match if we wnat strict match we have to use strict e.g /about/ then /about will not work...
     return (
+      <Router>
       <div className="App">
+      <ul>
+        <li><Link to ="/">Home</Link></li>
+        <li><Link to ="/about">About</Link></li>
+        <li><Link to ="/Hello">Hello</Link></li>
+        <li><Link to ="/User/John">User John</Link></li>
+        <li><Link to ="/User/Peter">User Peter</Link></li>
+
+      </ul>
+      <h1>Router Demo..(/home,/about)</h1>
+      <Route path='/'exact render={()=>{
+        return (<h1>Welcome Home</h1>)
+      }}/>
+      <Route path='/about'exact render={()=>{
+        return (<h1>Welcome About</h1>)
+      }}/>
+      <Route path='/Hello' exact strict component={Hello}/>
+      <Route path='/User/:username' exact strict component={User}/>
        <Parent/>
        <h1>{this.props.propString}</h1>
        <Number randNo={this.state.r} callFunctionInParent={this.clickeventButton}/>
@@ -56,9 +81,11 @@ class App extends Component {
        <Users title="Users List"/>
        Innerwidth: {this.state.innerWidth}
        <h1>Pure Component using should component update..</h1>
+       <ParentPure/>
        <h1>Pure Component Method</h1>
        <PureComponent/>
       </div>
+      </Router>
     );
   }
 }
